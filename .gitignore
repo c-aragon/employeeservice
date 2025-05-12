@@ -13,9 +13,6 @@
 *.iml
 .idea/modules.xml
 
-# Si no usas las carpetas de salida estándar de Gradle ('build'), IntelliJ podría usar 'out'
-out/
-
 # Otras configuraciones de IntelliJ (generalmente es seguro ignorarlas, a menos que se compartan explícitamente)
 .idea/libraries/
 .idea/jarRepositories.xml # Puede ser útil compartirlo si tienes repositorios custom configurados en el IDE
