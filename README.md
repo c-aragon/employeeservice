@@ -37,7 +37,7 @@ El proyecto está organizado siguiendo los principios de Clean Architecture, div
 
 1. Clonar el repositorio:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
+git clone git@github.com:c-aragon/employeeservice.git
 ```
 
 2. Configurar la base de datos:
