@@ -1,0 +1,80 @@
+# ###################################################################
+# ## IntelliJ IDEA
+# ###################################################################
+
+# Archivos específicos del usuario y del espacio de trabajo de IntelliJ
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+
+# Archivos generados por IntelliJ que pueden reconstruirse a partir de la configuración de Gradle/Maven
+# A menudo es mejor ignorar los archivos .iml y dejar que IntelliJ los regenere desde Gradle.
+*.iml
+.idea/modules.xml
+
+# Si no usas las carpetas de salida estándar de Gradle ('build'), IntelliJ podría usar 'out'
+out/
+
+# Otras configuraciones de IntelliJ (generalmente es seguro ignorarlas, a menos que se compartan explícitamente)
+.idea/libraries/
+.idea/jarRepositories.xml # Puede ser útil compartirlo si tienes repositorios custom configurados en el IDE
+
+# Plugins específicos de IntelliJ
+.idea/sonarlint/
+.idea/atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+target/lib/ # plugin de Atlassian para Jira
+
+# ###################################################################
+# ## Gradle
+# ###################################################################
+.gradle
+build/
+
+# ###################################################################
+# ## Java y Spring Boot
+# ###################################################################
+
+# Archivos de clases compilados
+*.class
+
+# Archivos de log
+*.log
+logs/
+
+# Archivos empaquetados (generalmente, no se versionan los artefactos de build)
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Archivos de volcado de errores de la JVM
+hs_err_pid*
+replay_pid*
+
+# ###################################################################
+# ## Archivos específicos del sistema operativo
+# ###################################################################
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ###################################################################
+# ## Archivos temporales y de varios
+# ###################################################################
+*.tmp
+*.bak
+*.swp
+
+# ###################################################################
+# ## Archivos de test
+# ###################################################################
+# Cobertura
+coverage/
+.nyc_output/
