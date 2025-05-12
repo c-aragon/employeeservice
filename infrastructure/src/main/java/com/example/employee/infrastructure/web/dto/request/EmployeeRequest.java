@@ -17,23 +17,23 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class EmployeeRequest {
 
-    @NotBlank(message = "El primer nombre no puede estar vacío")
-    @Size(max = 50, message = "El primer nombre no puede exceder los 50 caracteres")
+    @NotBlank(message = "First name can't be empty")
+    @Size(max = 50, message = "First name cannot exceed 50 characters")
     private String firstName;
 
-    @Size(max = 50, message = "El segundo nombre no puede exceder los 50 caracteres")
+    @Size(max = 50, message = "Middle name cannot exceed 50 characters")
     private String middleName;
 
-    @NotBlank(message = "El apellido paterno no puede estar vacío")
-    @Size(max = 50, message = "El apellido paterno no puede exceder los 50 caracteres")
+    @NotBlank(message = "Last name can't be empty")
+    @Size(max = 50, message = "Last name cannot exceed 50 characters")
     private String lastName;
 
-    @Size(max = 50, message = "El apellido materno no puede exceder los 50 caracteres")
+    @Size(max = 50, message = "Mother last name cannot exceed 50 characters")
     private String mothersLastName;
 
     private Gender gender;
 
-    @NotNull
+    @NotNull(message = "Birth date can't be null")
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
 
