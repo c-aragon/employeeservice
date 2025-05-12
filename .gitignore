@@ -1,6 +1,7 @@
 # ###################################################################
 # ## IntelliJ IDEA
 # ###################################################################
+.idea
 
 # Archivos específicos del usuario y del espacio de trabajo de IntelliJ
 .idea/workspace.xml
