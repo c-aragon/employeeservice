@@ -1,0 +1,5 @@
+rootProject.name = 'employee-management-service'
+
+include 'domain'
+include 'application'
+include 'infrastructure'
