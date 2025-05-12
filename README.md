@@ -65,9 +65,53 @@ git clone git@github.com:c-aragon/employeeservice.git
 
 ### Empleados
 - `GET /api/v1/employees` - Listar todos los empleados
+
+```bash
+   curl --location 'http://localhost:8080/api/v1/employees?page=0&size=10&sortBy=id&direction=asc' \
+--header 'Accept: */*'
+```
+
 - `POST /api/v1/employees` - Crear nuevos empleados (Uno o varios)
+  
+```bash
+curl --location 'http://localhost:8080/api/v1/employees' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: */*' \
+  --data '[
+  {
+  "firstName": "CARLOS",
+  "middleName": "AUGUSTO",
+  "lastName": "ARAGÓN",
+  "mothersLastName": "CRUZ",
+  "gender": "MAN",
+  "birthDate": "03-04-1990",
+  "position": "PROJECT_MANAGER"
+  }
+  ]'
+```
+
 - `PUT /api/v1/employees/{id}` - Actualizar empleado
+
+```bash
+curl --location --request PUT 'http://localhost:8080/api/v1/employees/<long>' \
+--header 'Content-Type: application/json' \
+--header 'Accept: */*' \
+--data '{
+  "firstName": "Carlos",
+  "middleName": "Augusto",
+  "lastName": "Aragón",
+  "mothersLastName": "Cruz",
+  "birthDate": "28-11-1985",
+  "gender": "MAN",
+  "position": "DEVELOPER"
+}'
+```
+
 - `DELETE /api/v1/employees/{id}` - Eliminar empleado
+
+```bash
+curl --location --request DELETE 'http://localhost:8080/api/v1/employees/<long>'
+```
 
 ## 🧪 Testing & coverage
 
@@ -89,6 +133,11 @@ Para ejecutar el proyecto en una máquina con docker (la imagen es pública):
 ```bash
 docker run -d -p8080:8080 ingaragon/employeeservice
 ```
+
+Para ingresar a la documentación (Una vez iniciado el proyecto con el comando anterior)
+
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
 
 ## 🤝 Contribución
 
