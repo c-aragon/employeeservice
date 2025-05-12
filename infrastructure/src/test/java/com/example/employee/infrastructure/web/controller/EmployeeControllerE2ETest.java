@@ -42,7 +42,7 @@ class EmployeeControllerE2ETest {
         request.setFirstName("SMITH");
         request.setLastName("SANDERS");
         request.setBirthDate(LocalDate.of(1990, 1, 1));
-        request.setPosition(Position.DEVELOPER);
+        request.setPosition(com.example.employee.domain.model.Position.DEVELOPER);
 
         MvcResult result = mockMvc.perform(post("/api/v1/employees")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -72,6 +72,27 @@ class EmployeeControllerE2ETest {
     }
 
     @Test
+    void testCreateWithNullFirstName() throws Exception {
+        // Create employee
+        EmployeeRequest request = new EmployeeRequest();
+        request.setFirstName(null);
+        request.setLastName("SANDERS");
+        request.setBirthDate(LocalDate.of(1990, 1, 1));
+        request.setPosition(com.example.employee.domain.model.Position.DEVELOPER);
+
+        MvcResult result = mockMvc.perform(post("/api/v1/employees")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(List.of(request))))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+        ErrorResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), ErrorResponse.class);
+
+        assertNotNull(response);
+        assertTrue(response.getMessage().startsWith("Validation failure"));
+    }
+
+    @Test
     void testCreateEmptyEmployee() throws Exception {
         MvcResult result = mockMvc.perform(post("/api/v1/employees")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -94,7 +115,7 @@ class EmployeeControllerE2ETest {
         createRequest.setMiddleName("SMITH");
         createRequest.setMothersLastName("SANDERS");
         createRequest.setBirthDate(LocalDate.of(1992, 5, 15));
-        createRequest.setPosition(Position.TESTER);
+        createRequest.setPosition(com.example.employee.domain.model.Position.TESTER);
 
         MvcResult createResult = mockMvc.perform(post("/api/v1/employees")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -112,7 +133,7 @@ class EmployeeControllerE2ETest {
         // Update employee
         UpdateEmployeeRequest updateRequest = new UpdateEmployeeRequest();
         updateRequest.setFirstName("BESHI");
-        updateRequest.setPosition(Position.CTO);
+        updateRequest.setPosition(com.example.employee.domain.model.Position.CTO);
 
         mockMvc.perform(put("/api/v1/employees/" + employeeId)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -132,7 +153,7 @@ class EmployeeControllerE2ETest {
         request.setFirstName("Carlos");
         request.setLastName("López");
         request.setBirthDate(LocalDate.of(1988, 8, 20));
-        request.setPosition(Position.ARCHITECT);
+        request.setPosition(com.example.employee.domain.model.Position.ARCHITECT);
 
         MvcResult createResult = mockMvc.perform(post("/api/v1/employees")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -168,9 +189,12 @@ class EmployeeControllerE2ETest {
     @Test
     void testCreateMultipleEmployees() throws Exception {
         List<EmployeeRequest> requests = Arrays.asList(
-                createEmployeeRequest("Ana", "Martínez", LocalDate.of(1995, 3, 10), Position.CTO),
-                createEmployeeRequest("Pedro", "Sánchez", LocalDate.of(1991, 7, 22), Position.ARCHITECT),
-                createEmployeeRequest("Laura", "Rodríguez", LocalDate.of(1993, 11, 5), Position.TESTER)
+                createEmployeeRequest("Ana", "Martínez",
+                        LocalDate.of(1995, 3, 10), com.example.employee.domain.model.Position.CTO),
+                createEmployeeRequest("Pedro", "Sánchez",
+                        LocalDate.of(1991, 7, 22), com.example.employee.domain.model.Position.ARCHITECT),
+                createEmployeeRequest("Laura", "Rodríguez",
+                        LocalDate.of(1993, 11, 5), com.example.employee.domain.model.Position.TESTER)
         );
 
         MvcResult result = mockMvc.perform(post("/api/v1/employees")
@@ -190,7 +214,8 @@ class EmployeeControllerE2ETest {
         assertTrue(response.stream().anyMatch(e -> e.getFirstName().equals("Laura")));
     }
 
-    private EmployeeRequest createEmployeeRequest(String firstName, String lastName, LocalDate birthDate, Position position) {
+    private EmployeeRequest createEmployeeRequest(String firstName, String lastName, LocalDate birthDate,
+                                                  com.example.employee.domain.model.Position position) {
         EmployeeRequest request = new EmployeeRequest();
         request.setFirstName(firstName);
         request.setLastName(lastName);

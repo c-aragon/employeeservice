@@ -1,7 +1,7 @@
 package com.example.employee.infrastructure.web.dto.request;
 
-import com.example.employee.infrastructure.persistence.entity.Gender;
-import com.example.employee.infrastructure.persistence.entity.Position;
+import com.example.employee.domain.model.Gender;
+import com.example.employee.domain.model.Position;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;

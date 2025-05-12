@@ -29,11 +29,11 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         employee.setLastName( request.getLastName() );
         employee.setMothersLastName( request.getMothersLastName() );
         if ( request.getGender() != null ) {
-            employee.setGender( request.getGender().name() );
+            employee.setGender( com.example.employee.domain.model.Gender.valueOf(request.getGender().name()));
         }
         employee.setBirthDate( request.getBirthDate() );
         if ( request.getPosition() != null ) {
-            employee.setPosition( request.getPosition().name() );
+            employee.setPosition(com.example.employee.domain.model.Position.valueOf(request.getPosition().name()));
         }
 
         return employee;
@@ -75,11 +75,11 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         employeeJpaEntity.setMothersLastName( employee.getMothersLastName() );
         employeeJpaEntity.setAge( employee.getAge() );
         if ( employee.getGender() != null ) {
-            employeeJpaEntity.setGender( Enum.valueOf( Gender.class, employee.getGender() ) );
+            employeeJpaEntity.setGender(Gender.valueOf(employee.getGender().name()));
         }
         employeeJpaEntity.setBirthDate( employee.getBirthDate() );
         if ( employee.getPosition() != null ) {
-            employeeJpaEntity.setPosition( Enum.valueOf( Position.class, employee.getPosition() ) );
+            employeeJpaEntity.setPosition(Position.valueOf(employee.getPosition().name()));
         }
 
         return employeeJpaEntity;
@@ -114,11 +114,11 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         employee.setMothersLastName( jpaEntity.getMothersLastName() );
         employee.setAge( jpaEntity.getAge() );
         if ( jpaEntity.getGender() != null ) {
-            employee.setGender( jpaEntity.getGender().name() );
+            employee.setGender( com.example.employee.domain.model.Gender.valueOf(jpaEntity.getGender().name()) );
         }
         employee.setBirthDate( jpaEntity.getBirthDate() );
         if ( jpaEntity.getPosition() != null ) {
-            employee.setPosition( jpaEntity.getPosition().name() );
+            employee.setPosition( com.example.employee.domain.model.Position.valueOf(jpaEntity.getPosition().name()) );
         }
 
         return employee;
@@ -157,13 +157,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
             employee.setMothersLastName( dto.getMothersLastName() );
         }
         if ( dto.getGender() != null ) {
-            employee.setGender( dto.getGender().name() );
+            employee.setGender( dto.getGender() );
         }
         if ( dto.getBirthDate() != null ) {
             employee.setBirthDate( dto.getBirthDate() );
         }
         if ( dto.getPosition() != null ) {
-            employee.setPosition( dto.getPosition().name() );
+            employee.setPosition( dto.getPosition() );
         }
     }
 

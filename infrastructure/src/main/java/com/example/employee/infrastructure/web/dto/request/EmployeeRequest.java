@@ -1,7 +1,7 @@
 package com.example.employee.infrastructure.web.dto.request;
 
-import com.example.employee.infrastructure.persistence.entity.Gender;
-import com.example.employee.infrastructure.persistence.entity.Position;
+import com.example.employee.domain.model.Gender;
+import com.example.employee.domain.model.Position;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

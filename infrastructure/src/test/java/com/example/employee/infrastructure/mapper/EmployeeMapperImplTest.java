@@ -50,8 +50,8 @@ public class EmployeeMapperImplTest {
         assertEquals(employeeJpaEntity.getLastName(), result.getFirst().getLastName());
         assertEquals(employeeJpaEntity.getMothersLastName(), result.getFirst().getMothersLastName());
         assertEquals(employeeJpaEntity.getAge(), result.getFirst().getAge());
-        assertEquals(employeeJpaEntity.getGender().toString(), result.getFirst().getGender());
-        assertEquals(employeeJpaEntity.getPosition().toString(), result.getFirst().getPosition());
+        assertEquals(employeeJpaEntity.getGender().toString(), result.getFirst().getGender().toString());
+        assertEquals(employeeJpaEntity.getPosition().toString(), result.getFirst().getPosition().toString());
     }
 
     @Test
@@ -72,8 +72,8 @@ public class EmployeeMapperImplTest {
         assertEquals(employee.getLastName(), result.getLastName());
         assertEquals(employee.getMothersLastName(), result.getMothersLastName());
         assertEquals(employee.getAge(), result.getAge());
-        assertEquals(employee.getGender(), result.getGender().toString());
-        assertEquals(employee.getPosition(), result.getPosition().toString());
+        assertEquals(employee.getGender().toString(), result.getGender().toString());
+        assertEquals(employee.getPosition().toString(), result.getPosition().toString());
     }
 
     @Test
@@ -95,7 +95,7 @@ public class EmployeeMapperImplTest {
         assertEquals(employee.getLastName(), result.getLastName());
         assertEquals(employee.getMothersLastName(), result.getMothersLastName());
         assertEquals(employee.getAge(), result.getAge());
-        assertEquals(employee.getGender(), result.getGender().toString());
+        assertEquals(employee.getGender().toString(), result.getGender().toString());
         Assertions.assertNull(result.getPosition());
     }
 
@@ -108,8 +108,8 @@ public class EmployeeMapperImplTest {
         assertEquals(employeeRequest.getMiddleName(), result.getMiddleName());
         assertEquals(employeeRequest.getLastName(), result.getLastName());
         assertEquals(employeeRequest.getMothersLastName(), result.getMothersLastName());
-        assertEquals(employeeRequest.getGender().toString(), result.getGender());
-        assertEquals(employeeRequest.getPosition().toString(), result.getPosition());
+        assertEquals(employeeRequest.getGender().toString(), result.getGender().toString());
+        assertEquals(employeeRequest.getPosition().toString(), result.getPosition().toString());
     }
 
     @Test
@@ -122,7 +122,7 @@ public class EmployeeMapperImplTest {
         assertEquals(employeeRequest.getMiddleName(), result.getMiddleName());
         assertEquals(employeeRequest.getLastName(), result.getLastName());
         assertEquals(employeeRequest.getMothersLastName(), result.getMothersLastName());
-        assertEquals(employeeRequest.getGender().toString(), result.getGender());
+        assertEquals(employeeRequest.getGender().toString(), result.getGender().toString());
         Assertions.assertNull(employeeRequest.getPosition());
     }
 
@@ -148,7 +148,7 @@ public class EmployeeMapperImplTest {
         assertEquals(employeeJpaEntity.getMiddleName(), result.getMiddleName());
         assertEquals(employeeJpaEntity.getLastName(), result.getLastName());
         assertEquals(employeeJpaEntity.getMothersLastName(), result.getMothersLastName());
-        assertEquals(employeeJpaEntity.getGender().toString(), result.getGender());
+        assertEquals(employeeJpaEntity.getGender().toString(), result.getGender().toString());
         Assertions.assertNull(result.getPosition());
     }
 
@@ -184,8 +184,8 @@ public class EmployeeMapperImplTest {
         assertEquals(updateEmployeeRequest.getMiddleName(), result.getMiddleName());
         assertEquals(updateEmployeeRequest.getLastName(), result.getLastName());
         assertEquals(updateEmployeeRequest.getMothersLastName(), result.getMothersLastName());
-        assertEquals(updateEmployeeRequest.getGender().toString(), result.getGender());
-        assertEquals(updateEmployeeRequest.getPosition().toString(), result.getPosition());
+        assertEquals(updateEmployeeRequest.getGender().toString(), result.getGender().toString());
+        assertEquals(updateEmployeeRequest.getPosition().toString(), result.getPosition().toString());
     }
 
     @Test
@@ -249,8 +249,8 @@ public class EmployeeMapperImplTest {
         employee.setLastName("Lingam");
         employee.setMothersLastName("Smith");
         employee.setBirthDate(LocalDate.of(1990, 1, 1));
-        employee.setGender(Gender.MAN.toString());
-        employee.setPosition(Position.DEVELOPER.toString());
+        employee.setGender(com.example.employee.domain.model.Gender.MAN);
+        employee.setPosition(com.example.employee.domain.model.Position.DEVELOPER);
         return employee;
     }
 
@@ -261,8 +261,8 @@ public class EmployeeMapperImplTest {
         employeeRequest.setLastName("Lingam");
         employeeRequest.setMothersLastName("Smith");
         employeeRequest.setBirthDate(LocalDate.of(1990, 1, 1));
-        employeeRequest.setGender(Gender.MAN);
-        employeeRequest.setPosition(Position.DEVELOPER);
+        employeeRequest.setGender(com.example.employee.domain.model.Gender.MAN);
+        employeeRequest.setPosition(com.example.employee.domain.model.Position.DEVELOPER);
         return employeeRequest;
     }
 
@@ -273,8 +273,8 @@ public class EmployeeMapperImplTest {
         updateEmployeeRequest.setLastName("Lingam");
         updateEmployeeRequest.setMothersLastName("Smith");
         updateEmployeeRequest.setBirthDate(LocalDate.of(1990, 1, 1));
-        updateEmployeeRequest.setGender(Gender.MAN);
-        updateEmployeeRequest.setPosition(Position.DEVELOPER);
+        updateEmployeeRequest.setGender(com.example.employee.domain.model.Gender.MAN);
+        updateEmployeeRequest.setPosition(com.example.employee.domain.model.Position.DEVELOPER);
         return updateEmployeeRequest;
     }
 }

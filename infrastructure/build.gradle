@@ -16,7 +16,7 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6'
 }
 
-// Configuración para que Spring Boot sepa cuál es la clase principal
+// Main class for springboot
 bootJar {
     mainClass = 'com.example.employee.infrastructure.EmployeeManagementApplication'
 }

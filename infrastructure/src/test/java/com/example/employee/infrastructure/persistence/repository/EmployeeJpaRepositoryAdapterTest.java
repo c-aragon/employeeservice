@@ -53,8 +53,8 @@ class EmployeeJpaRepositoryAdapterTest {
         employee.setLastName("Lingam");
         employee.setMothersLastName("Smith");
         employee.setBirthDate(LocalDate.of(1990, 1, 1));
-        employee.setGender("MALE");
-        employee.setPosition("DEVELOPER");
+        employee.setGender(com.example.employee.domain.model.Gender.MAN);
+        employee.setPosition(com.example.employee.domain.model.Position.TESTER);
 
         // Configurar EmployeeJpaEntity
         employeeJpaEntity = new EmployeeJpaEntity();
@@ -65,7 +65,7 @@ class EmployeeJpaRepositoryAdapterTest {
         employeeJpaEntity.setMothersLastName("Smith");
         employeeJpaEntity.setBirthDate(LocalDate.of(1990, 1, 1));
         employeeJpaEntity.setGender(Gender.MAN);
-        employeeJpaEntity.setPosition(Position.DEVELOPER);
+        employeeJpaEntity.setPosition(Position.TESTER);
         employeeJpaEntity.prePersist();
     }
 

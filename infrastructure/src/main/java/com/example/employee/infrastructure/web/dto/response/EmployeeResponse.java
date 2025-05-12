@@ -1,5 +1,7 @@
 package com.example.employee.infrastructure.web.dto.response;
 
+import com.example.employee.domain.model.Gender;
+import com.example.employee.domain.model.Position;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,9 +20,9 @@ public class EmployeeResponse {
     private String lastName;
     private String mothersLastName;
     private Integer age;
-    private String gender;
+    private Gender gender;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
-    private String position;
+    private Position position;
 
 }

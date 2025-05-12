@@ -23,8 +23,8 @@ public class Employee {
     private String lastName;
     private String mothersLastName;
     private Integer age;
-    private String gender;
+    private Gender gender;
     private LocalDate birthDate;
-    private String position;
+    private Position position;
 
 }
