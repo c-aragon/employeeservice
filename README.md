@@ -129,10 +129,16 @@ Para construir el proyecto:
 
 ## 🏃 Ejecución con docker
 
+Url de la imagen en dockerhub
+
+[https://hub.docker.com/r/ingaragon/employeeservice/tags](https://hub.docker.com/r/ingaragon/employeeservice/tags)
+
 Para ejecutar el proyecto en una máquina con docker (la imagen es pública):
 ```bash
 docker run -d -p8080:8080 ingaragon/employeeservice
 ```
+
+
 
 Para ingresar a la documentación (Una vez iniciado el proyecto con el comando anterior)
 
